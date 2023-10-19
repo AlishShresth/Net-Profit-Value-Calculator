@@ -1,0 +1,51 @@
+/* src/InvestmentForm.css */
+* {
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    margin:0;
+    padding:0;
+}
+.investment-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.input-fields label,
+.cash-flows label {
+    display: block;
+    margin-top: 10px;
+}
+
+.input-fields input,
+.cash-flows input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px; 
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #628fbf;
+    transition-duration: 0.3s;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;}
+.results {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+ul>li{
+    list-style: none;
+}
