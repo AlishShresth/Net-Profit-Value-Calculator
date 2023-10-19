@@ -19,7 +19,7 @@ function InvestmentForm() {
 
 const calculateResults = () => {
   const netProfit = cashFlows.reduce((acc, cf) => acc + cf, -initialInvestment);
-  const roi = (netProfit / initialInvestment) * 100;
+  const roi = (netProfit / cashFlows.length + 1)/initialInvestment * 100;
 
   let cumulativeCashFlow = -initialInvestment;
   let paybackPeriod = cashFlows.length + 1; // Default to a value greater than the number of years
@@ -45,7 +45,7 @@ const calculateResults = () => {
 
   return (
     <div className='investment-form'>
-      <h1 style={{fontWeight: 700,fontSize:22}}>Investment Analysis</h1>
+      <h1 style={{ fontWeight: 700, fontSize: 22 }}>Investment Analysis</h1>
       <div className='input-fields'>
         <label for='iinv'>Initial Investment:</label>
         <input
@@ -85,19 +85,32 @@ const calculateResults = () => {
       <button onClick={calculateResults}>Calculate</button>
       <div className='results'>
         <h3 style={{ marginBottom: 10 }}>Results</h3>
-        <p style={{ marginBottom: 10 }}>
-          Net Profit: ${results.netProfit.toFixed(2)}
+        <p style={{ marginBottom: 20 }}>
+          Net Profit:{" "}
+          <span style={{ padding: 7, background: "white" }}>
+            ${results.netProfit.toFixed(2)}
+          </span>
         </p>
-        <p style={{ marginBottom: 10 }}>
-          Return on Investment (ROI): {results.roi.toFixed(2)}%
+        <p style={{ marginBottom: 20 }}>
+          Return on Investment (ROI):{" "}
+          <span style={{ padding: 7, background: "white" }}>
+            {results.roi.toFixed(2)}%
+          </span>
         </p>
-        <p style={{ marginBottom: 10 }}>
+        <p style={{ marginBottom: 20 }}>
           Payback Period:{" "}
-          {results.paybackPeriod === cashFlows.length + 1
-            ? "N/A"
-            : results.paybackPeriod + " years"}
+          <span style={{ padding: 7, background: "white" }}>
+            {results.paybackPeriod === cashFlows.length + 1
+              ? "N/A"
+              : results.paybackPeriod + " years"}
+          </span>
         </p>
-        <p style={{marginBottom: 10}}>Net Present Value (NPV): ${results.npv.toFixed(2)}</p>
+        <p style={{ marginBottom: 20 }}>
+          Net Present Value (NPV):{" "}
+          <span style={{ padding: 7, background: "white" }}>
+            ${results.npv.toFixed(2)}
+          </span>
+        </p>
       </div>{" "}
     </div>
   );
